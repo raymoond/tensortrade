@@ -1,4 +1,4 @@
-# Copyright 2019 The TensorTrade Authors.
+# Copyright 2021 The TensorTrade Authors.
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -33,12 +33,11 @@ with open(os.path.join(tensortrade_directory, 'tensortrade', 'version.py'), 'r')
 setup(
     name='tensortrade',
     version=version,
-    description='TensorTrade: a reinforcement learning library for training, evaluating, and deploying robust trading agents.',
-    long_description='TensorTrade: a reinforcement learning library for training, evaluating, and deploying robust trading agents.',
+    description='TensorTrade: A reinforcement learning library for training, evaluating, and deploying robust trading agents.',
+    long_description='TensorTrade: A reinforcement learning library for training, evaluating, and deploying robust trading agents.',
     long_description_content_type='text/markdown',
-    author='Adam King',
-    author_email='adamjking3@gmail.com',
-    url='https://github.com/notadamking/tensortrade',
+    author='Adam King <adamjking3@gmail.com>, Matthew Brulhardt <mwbrulhardt@gmail.com>',
+    url='https://github.com/tensortrade-org/tensortrade',
     packages=[
         package for package in find_packages(exclude=('tests', 'docs'))
         if package.startswith('tensortrade')
@@ -46,27 +45,31 @@ setup(
     license='Apache 2.0',
     python_requires='>=3.6',
     install_requires=[
-        'numpy==1.16.4',
-        'pandas==0.25.0',
-        'gym==0.14.0'
+        'numpy>=1.17.0',
+        'pandas>=0.25.0',
+        'gym>=0.14.0',
+        'pyyaml>=5.1.2',
+        'stochastic>=0.6.0',
+        'tensorflow>=2.1.0',
+        'ipython>=7.12.0',
+        'matplotlib>=3.1.1',
+        'plotly>=4.5.0'
     ],
     extras_require={
-        'tf': ['tensorflow==1.13.1'],
-        'tf-gpu': ['tensorflow-gpu==1.13.1'],
-        'tensorforce': ['tensorforce==0.5.2'],
-        'baselines': ['stable-baselines==2.8.0', 'mpi4py'],
-        'talib': ['TA-Lib==0.4.17'],
-        'fbm': ['stochastic==0.4.0'],
-        'ccxt': ['ccxt==1.18.1220'],
-        'tests': ['pytest==5.1.1'],
-        'docs': ['sphinx',
-                 'sphinx_rtd_theme',
-                 'sphinx_autodoc_typehints',
-                 'sphinxcontrib.apidoc',
-                 'nbsphinx',
-                 'nbsphinx_link',
-                 'm2r',
-                 ],
+        'tests': [
+            'pytest>=5.1.1',
+            'ta>=0.4.7'
+        ],
+        'docs': [
+            'sphinx',
+            'sphinx_rtd_theme',
+            'sphinxcontrib.apidoc',
+            'nbsphinx',
+            'nbsphinx_link',
+            'recommonmark',
+            'sphinx_markdown_tables',
+            'ipykernel'
+        ],
     },
     classifiers=[
         'Development Status :: 3 - Alpha',

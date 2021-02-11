@@ -6,12 +6,13 @@ services:
 language: python
 
 python:
-  - '3.6'
+  - '3.7'
 
 install:
-  - pip install -e .[tf,tensorforce,ccxt,fbm,tests]
+  - pip install -e .[tests]
 
-script: pytest
+script:
+  - pytest
 
 notifications:
   webhooks:
